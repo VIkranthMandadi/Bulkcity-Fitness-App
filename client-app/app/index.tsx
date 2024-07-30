@@ -1,11 +1,44 @@
+// import { StyleSheet, Text, View } from "react-native";
 
+// export default function Page() {
+//   return (
+//     <View style={styles.container}>
+//       <View style={styles.main}>
+//         <Text style={styles.title}>Hello World</Text>
+//         <Text style={styles.subtitle}>This is the first page of your app.</Text>
+//       </View>
+//     </View>
+//   );
+// }
+
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     alignItems: "center",
+//     padding: 24,
+//   },
+//   main: {
+//     flex: 1,
+//     justifyContent: "center",
+//     maxWidth: 960,
+//     marginHorizontal: "auto",
+//   },
+//   title: {
+//     fontSize: 64,
+//     fontWeight: "bold",
+//   },
+//   subtitle: {
+//     fontSize: 36,
+//     color: "#38434D",
+//   },
+// });
 import React from 'react';
 import { StyleSheet, Text, TextInput, View, TouchableOpacity, ImageBackground } from 'react-native';
 
 const App = () => {
   return (
     <ImageBackground 
-      source={{uri: 'https://path-to-your-background-image.png'}}
+      source={{uri: '../images/bg.png'}}
       style={styles.background}
     >
       <View style={styles.container}>
@@ -45,6 +78,7 @@ const styles = StyleSheet.create({
     flex: 1,
     resizeMode: 'cover',
     justifyContent: 'center',
+    color: 'black',
   },
   container: {
     flex: 1,
@@ -55,7 +89,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 48,
     fontWeight: 'bold',
-    color: 'white',
+    color: 'black',
     marginBottom: 50,
   },
   input: {
