@@ -7,11 +7,17 @@ import {
   TouchableOpacity,
   ImageBackground,
 } from "react-native";
+import { NavigationProp } from "@react-navigation/native";
 
-const LoginPage = () => {
+
+type LoginPageProps = {
+  navigation: NavigationProp<any>;
+};
+
+const LoginPage: React.FC<LoginPageProps> = ({ navigation }) => {
   return (
     <ImageBackground
-      source={{ uri: "../images/bg.png" }}
+      source={require("../../images/bg.png")}
       style={styles.background}
     >
       <View style={styles.container}>
@@ -34,7 +40,10 @@ const LoginPage = () => {
           <Text style={styles.forgotPassword}>FORGOT PASSWORD?</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.loginButton}>
+        <TouchableOpacity
+          style={styles.loginButton}
+          onPress={() => navigation.navigate("Profile", { name: "Jane" })}
+        >
           <Text style={styles.loginButtonText}>LOGIN</Text>
         </TouchableOpacity>
 
