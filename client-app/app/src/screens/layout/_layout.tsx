@@ -1,11 +1,10 @@
-
 import React from 'react';
 import { StyleSheet, Text, TextInput, View, TouchableOpacity, ImageBackground } from 'react-native';
 
 const App = () => {
   return (
     <ImageBackground 
-      source={{uri: 'https://path-to-your-background-image.png'}}
+      source={{uri: '../images/bg.png'}}
       style={styles.background}
     >
       <View style={styles.container}>
@@ -32,11 +31,13 @@ const App = () => {
           <Text style={styles.loginButtonText}>LOGIN</Text>
         </TouchableOpacity>
         
+        
         <Text style={styles.signupText}>
           DON'T HAVE AN ACCOUNT? <Text style={styles.signupLink}>SIGN UP!</Text>
         </Text>
       </View>
     </ImageBackground>
+
   );
 };
 
@@ -45,6 +46,7 @@ const styles = StyleSheet.create({
     flex: 1,
     resizeMode: 'cover',
     justifyContent: 'center',
+    color: 'black',
   },
   container: {
     flex: 1,
@@ -55,8 +57,9 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 48,
     fontWeight: 'bold',
-    color: 'white',
+    color: 'black',
     marginBottom: 50,
+    fontFamily: 'Papyrus',
   },
   input: {
     width: '100%',
@@ -67,10 +70,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     fontSize: 18,
     color: 'black',
+    fontFamily: 'Optima'
   },
   forgotPassword: {
     color: '#00f',
     marginBottom: 20,
+    fontFamily: 'Optima'
   },
   loginButton: {
     width: '100%',
@@ -80,17 +85,20 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 20,
+
   },
   loginButtonText: {
     color: 'white',
     fontSize: 18,
     fontWeight: 'bold',
+    fontFamily: 'Papyrus',
   },
   signupText: {
-    color: 'white',
+    color: 'Optima',
   },
   signupLink: {
     color: '#00f',
+    fontFamily: 'Optima'
   },
 });
 
