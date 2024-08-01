@@ -25,24 +25,28 @@ const LoginPage: React.FC<LoginPageProps> = ({ navigation }) => {
 
         <TextInput
           style={styles.input}
-          placeholder="ENTER USERNAME"
+          placeholder="Enter Username"
           placeholderTextColor="#999"
         />
 
         <TextInput
           style={styles.input}
-          placeholder="ENTER PASSWORD"
+          placeholder="Enter Password"
           placeholderTextColor="#999"
           secureTextEntry={true}
         />
 
-        <TouchableOpacity>
+        <TouchableOpacity
+        style={styles.forgotPassword}
+        onPress={() => navigation.navigate("Reset Password", { title: "Please enter your new passoword"})}
+        >
           <Text style={styles.forgotPassword}>FORGOT PASSWORD?</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
           style={styles.loginButton}
           onPress={() => navigation.navigate("Profile", { name: "Jane" })}
+          
         >
           <Text style={styles.loginButtonText}>LOGIN</Text>
         </TouchableOpacity>
@@ -71,7 +75,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 48,
     fontWeight: "bold",
-    color: "black",
+    color: "white",
     marginBottom: 50,
     fontFamily: "Papyrus",
   },
@@ -87,12 +91,12 @@ const styles = StyleSheet.create({
     fontFamily: "Optima",
   },
   forgotPassword: {
-    color: "#00f",
+    color: "#0096FF",
     marginBottom: 20,
     fontFamily: "Optima",
   },
   loginButton: {
-    width: "100%",
+    width: "70%",
     height: 50,
     backgroundColor: "#333",
     borderRadius: 5,
@@ -107,12 +111,15 @@ const styles = StyleSheet.create({
     fontFamily: "Papyrus",
   },
   signupText: {
-    color: "Optima",
-  },
-  signupLink: {
-    color: "#00f",
+    color: "white",
     fontFamily: "Optima",
   },
+  signupLink: {
+    color: "#0096FF",
+    fontFamily: "Optima",
+  
+  },
 });
+
 
 export default LoginPage;
