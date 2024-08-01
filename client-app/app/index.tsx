@@ -37,6 +37,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import LoginPage from "./src/screens/LoginPage/LoginPage";
 import HomeScreen from "./src/screens/HomeScreen/HomeScreen";
+import CalendarPage from "./src/screens/CalendarScreen/CalendarScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -48,7 +49,7 @@ const App = () => {
         component={LoginPage}
         options={{ title: "Welcome" }}
       />
-      <Stack.Screen name="Profile" component={HomeScreen} />
+      <Stack.Screen name="Profile" component={CalendarPage} />
     </Stack.Navigator>
   );
 };
