@@ -42,7 +42,7 @@ const LoginPage: React.FC<LoginPageProps> = ({ navigation }) => {
 
         <TouchableOpacity
           style={styles.loginButton}
-          onPress={() => navigation.navigate("Profile", { name: "Jane" })}
+          onPress={() => navigation.navigate("Profile")}
         >
           <Text style={styles.loginButtonText}>LOGIN</Text>
         </TouchableOpacity>
