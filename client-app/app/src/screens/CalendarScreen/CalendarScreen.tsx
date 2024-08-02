@@ -1,9 +1,6 @@
-// src/CalendarPage.tsx
-
 import React from "react";
-import { View, StyleSheet, Text } from "react-native";
-import { Calendar, CalendarList, Agenda } from "react-native-calendars";
-import { Button } from "react-native";
+import { View, StyleSheet, Text, Dimensions } from "react-native";
+import { Calendar } from "react-native-calendars";
 import { NavigationProp, RouteProp } from "@react-navigation/native";
 
 type CalendarPageProps = {
@@ -11,7 +8,7 @@ type CalendarPageProps = {
   route: RouteProp<any>;
 };
 
-const CalendarPage: React.FC<CalendarPageProps> = ({ navigation, route}) => {
+const CalendarPage: React.FC<CalendarPageProps> = ({ navigation, route }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.header}>Calendar</Text>
@@ -27,7 +24,7 @@ const CalendarPage: React.FC<CalendarPageProps> = ({ navigation, route}) => {
           console.log("selected day", day);
         }}
         // Month format in calendar title. Formatting values: http://arshaw.com/xdate/#Formatting
-        monthFormat={"yyyy MM"}
+        monthFormat={"MMMM yyyy"}
         // Do not show days of other months in month page. Default = false
         hideExtraDays={true}
         // If hideArrows=false and hideExtraDays=false do not switch month when tapping on greyed out day from another month that is visible in calendar page. Default = false
@@ -35,7 +32,7 @@ const CalendarPage: React.FC<CalendarPageProps> = ({ navigation, route}) => {
         // Hide day names. Default = false
         hideDayNames={false}
         // Show week numbers to the left. Default = false
-        showWeekNumbers={true}
+        showWeekNumbers={false}
         // Handler which gets executed when press arrow icon left. It receive a callback can go back month
         onPressArrowLeft={(subtractMonth) => subtractMonth()}
         // Handler which gets executed when press arrow icon right. It receive a callback can go next month
@@ -46,27 +43,23 @@ const CalendarPage: React.FC<CalendarPageProps> = ({ navigation, route}) => {
         disableArrowRight={false}
         // Disable all touch events for disabled days. can be override with disableTouchEvent in markedDates
         disableAllTouchEventsForDisabledDays={true}
-        // Replace default month and year title with custom one. the function receive a date as parameter
-        // renderHeader={(date) => {
-        //   /*Return JSX*/
-        // }}
         // Enable the option to swipe between months. Default = false
         enableSwipeMonths={true}
         theme={{
-          backgroundColor: "#ffffff",
-          calendarBackground: "#ffffff",
-          textSectionTitleColor: "#000000",
-          selectedDayBackgroundColor: "#000000",
-          selectedDayTextColor: "#ffffff",
-          todayTextColor: "#000000",
-          dayTextColor: "#000000",
+          backgroundColor: "#1c1c1c",
+          calendarBackground: "#1c1c1c",
+          textSectionTitleColor: "white",
+          selectedDayBackgroundColor: "#333333",
+          selectedDayTextColor: "white",
+          todayTextColor: "#00adf5",
+          dayTextColor: "white",
           textDisabledColor: "#d9e1e8",
-          dotColor: "#000000",
-          selectedDotColor: "#ffffff",
-          arrowColor: "black",
+          dotColor: "#00adf5",
+          selectedDotColor: "white",
+          arrowColor: "white",
           disabledArrowColor: "#d9e1e8",
-          monthTextColor: "black",
-          indicatorColor: "black",
+          monthTextColor: "white",
+          indicatorColor: "white",
           textDayFontFamily: "monospace",
           textMonthFontFamily: "monospace",
           textDayHeaderFontFamily: "monospace",
@@ -77,6 +70,7 @@ const CalendarPage: React.FC<CalendarPageProps> = ({ navigation, route}) => {
           textMonthFontSize: 16,
           textDayHeaderFontSize: 16,
         }}
+        style={styles.calendar}
       />
     </View>
   );
@@ -85,13 +79,17 @@ const CalendarPage: React.FC<CalendarPageProps> = ({ navigation, route}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#1c1c1c", // Dark background
   },
   header: {
     fontSize: 24,
     textAlign: "center",
     margin: 10,
-    color: "#000",
+    color: "white", // White text for header
+  },
+  calendar: {
+    width: Dimensions.get("window").width,
+    height: Dimensions.get("window").height - 100, // Adjust height as needed
   },
 });
 

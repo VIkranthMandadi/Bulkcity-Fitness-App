@@ -49,7 +49,7 @@ const App = () => {
         component={LoginPage}
         options={{ title: "Welcome" }}
       />
-      <Stack.Screen name="Profile" component={CalendarPage} />
+      <Stack.Screen name="CalendarPage" component={CalendarPage} />
     </Stack.Navigator>
   );
 };
