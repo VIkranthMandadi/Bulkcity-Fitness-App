@@ -7,11 +7,11 @@ import {
   TouchableOpacity,
   ImageBackground,
 } from "react-native";
-import { NavigationProp } from "@react-navigation/native";
-
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { RootStackParamList } from "@/app";
 
 type LoginPageProps = {
-  navigation: NavigationProp<any>;
+  navigation: NativeStackNavigationProp<RootStackParamList, "LoginPage">;
 };
 
 const LoginPage: React.FC<LoginPageProps> = ({ navigation }) => {

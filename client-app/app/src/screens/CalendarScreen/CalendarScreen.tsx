@@ -2,13 +2,14 @@ import React from "react";
 import { View, StyleSheet, Text, Dimensions } from "react-native";
 import { Calendar } from "react-native-calendars";
 import { NavigationProp, RouteProp } from "@react-navigation/native";
+import { RootStackParamList } from "@/app";
 
 type CalendarPageProps = {
-  navigation: NavigationProp<any>;
-  route: RouteProp<any>;
+  navigation: NavigationProp<RootStackParamList, "CalendarPage">;
+  route: RouteProp<RootStackParamList, "CalendarPage">;
 };
 
-const CalendarPage: React.FC<CalendarPageProps> = ({ navigation, route }) => {
+const CalendarPage: React.FC<CalendarPageProps> = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.header}>Calendar</Text>
@@ -22,6 +23,7 @@ const CalendarPage: React.FC<CalendarPageProps> = ({ navigation, route }) => {
         // Handler which gets executed on day press. Default = undefined
         onDayPress={(day) => {
           console.log("selected day", day);
+          navigation.navigate("WorkoutPage", { date: day.dateString });
         }}
         // Month format in calendar title. Formatting values: http://arshaw.com/xdate/#Formatting
         monthFormat={"MMMM yyyy"}
