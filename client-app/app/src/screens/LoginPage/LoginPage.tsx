@@ -38,7 +38,6 @@ const LoginPage: React.FC<LoginPageProps> = ({ navigation }) => {
 
         <TouchableOpacity
         style={styles.forgotPassword}
-        onPress={() => navigation.navigate("Reset Password", { title: "Please enter your new passoword"})}
         >
           <Text style={styles.forgotPassword}>FORGOT PASSWORD?</Text>
         </TouchableOpacity>
@@ -52,7 +51,10 @@ const LoginPage: React.FC<LoginPageProps> = ({ navigation }) => {
         </TouchableOpacity>
 
         <Text style={styles.signupText}>
-          DON'T HAVE AN ACCOUNT? <Text style={styles.signupLink}>SIGN UP!</Text>
+          DON'T HAVE AN ACCOUNT? 
+          <TouchableOpacity onPress={() => navigation.navigate("SignUp")}>
+            <Text style={styles.signupLink} id={'1'} > SIGN UP!</Text>
+          </TouchableOpacity>
         </Text>
       </View>
     </ImageBackground>
@@ -117,6 +119,7 @@ const styles = StyleSheet.create({
   signupLink: {
     color: "#0096FF",
     fontFamily: "Optima",
+    marginBottom: -2,
   
   },
 });
