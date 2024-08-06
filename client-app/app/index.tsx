@@ -37,6 +37,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import LoginPage from "./src/screens/LoginPage/LoginPage";
 import HomeScreen from "./src/screens/HomeScreen/HomeScreen";
+import ResetPasswordPage from "./src/screens/ForgotPassword/ForgotPassword";
 
 const Stack = createNativeStackNavigator();
 
@@ -45,10 +46,10 @@ const App = () => {
     <Stack.Navigator>
       <Stack.Screen
         name="Login"
-        component={LoginPage}
+        component={ResetPasswordPage}
         options={{ title: "Welcome" }}
       />
-      <Stack.Screen name="Profile" component={HomeScreen} />
+      <Stack.Screen name="Profile" component={ResetPasswordPage} />
     </Stack.Navigator>
   );
 };
