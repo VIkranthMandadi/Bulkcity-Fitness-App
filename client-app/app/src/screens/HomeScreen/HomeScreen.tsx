@@ -11,7 +11,7 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation, route }) => {
   return (
     <Button
       title="Go to Jane's profile"
-      onPress={() => navigation.navigate("Profile", { name: "Jane" })}
+      onPress={() => navigation.navigate("HomePage", { name: "Jane" })}
     />
   );
 };
