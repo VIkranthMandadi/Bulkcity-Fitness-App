@@ -9,12 +9,24 @@ import {
 } from "react-native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamList } from "@/app";
+import axios from "axios"; 
 
 type LoginPageProps = {
   navigation: NativeStackNavigationProp<RootStackParamList, "LoginPage">;
 };
 
 const LoginPage: React.FC<LoginPageProps> = ({ navigation }) => {
+
+  const fetchData = () => {
+    axios
+      .get("http://localhost:3000/exercises")
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  };
   return (
     <ImageBackground
       source={require("../../images/bg.png")}
@@ -42,7 +54,8 @@ const LoginPage: React.FC<LoginPageProps> = ({ navigation }) => {
 
         <TouchableOpacity
           style={styles.loginButton}
-          onPress={() => navigation.navigate("CalendarPage")}
+          onPress={() => navigation.navigate("AllWorkoutsPage")}
+          //onPress={() => fetchData()}
         >
           <Text style={styles.loginButtonText}>LOGIN</Text>
         </TouchableOpacity>
