@@ -8,12 +8,24 @@ import {
 } from "react-native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamList } from "@/app";
+import axios from "axios"; 
 
 type LoginPageProps = {
   navigation: NativeStackNavigationProp<RootStackParamList, "LoginPage">;
 };
 
 const LoginPage: React.FC<LoginPageProps> = ({ navigation }) => {
+
+  const fetchData = () => {
+    axios
+      .get("http://localhost:3000/exercises")
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  };
   return (
     <View style={styles.container}>
       <View style={styles.titleContainer}>
@@ -37,14 +49,12 @@ const LoginPage: React.FC<LoginPageProps> = ({ navigation }) => {
       <TouchableOpacity>
         <Text style={styles.forgotPassword}>FORGOT PASSWORD?</Text>
       </TouchableOpacity>
-
       <TouchableOpacity
         style={styles.loginButton}
         onPress={() => navigation.navigate("CalendarPage")}
       >
         <Text style={styles.loginButtonText}>LOGIN</Text>
       </TouchableOpacity>
-
       <Text style={styles.signupText}>
         DON'T HAVE AN ACCOUNT? <Text style={styles.signupLink}>SIGN UP!</Text>
       </Text>
