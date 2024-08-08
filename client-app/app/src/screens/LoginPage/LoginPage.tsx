@@ -39,6 +39,12 @@ const LoginPage: React.FC<LoginPageProps> = ({ navigation }) => {
         placeholderTextColor="#cdf1ff"
       />
 
+        <TouchableOpacity
+          style={styles.loginButton}
+          onPress={() => navigation.navigate("Profile")}
+        >
+          <Text style={styles.loginButtonText}>LOGIN</Text>
+        </TouchableOpacity>
       <TextInput
         style={styles.input}
         placeholder="Enter Password"
