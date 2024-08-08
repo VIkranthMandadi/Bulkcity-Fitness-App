@@ -6,15 +6,58 @@ import {
   View,
   TouchableOpacity,
 } from "react-native";
+import { NavigationProp } from "@react-navigation/native";
+
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamList } from "@/app";
 import axios from "axios"; 
+
 
 type LoginPageProps = {
   navigation: NativeStackNavigationProp<RootStackParamList, "LoginPage">;
 };
 
 const LoginPage: React.FC<LoginPageProps> = ({ navigation }) => {
+  return (
+    <ImageBackground
+      source={require("../../images/bg.png")}
+      style={styles.background}
+    >
+      <View style={styles.container}>
+        <Text style={styles.title}>BULK CITY</Text>
+
+        <TextInput
+          style={styles.input}
+          placeholder="Enter Username"
+          placeholderTextColor="#999"
+        />
+
+        <TextInput
+          style={styles.input}
+          placeholder="Enter Password"
+          placeholderTextColor="#999"
+          secureTextEntry={true}
+        />
+
+        <TouchableOpacity
+          style={styles.forgotPassword}
+          onPress={() => navigation.navigate("ResetPassword")}
+        >
+          <Text style={styles.forgotPassword}>FORGOT PASSWORD?</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.loginButton}
+          onPress={() => navigation.navigate("Profile", { name: "Jane" })}
+        >
+          <Text style={styles.loginButtonText}>LOGIN</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={() => navigation.navigate("SignUp")}>
+          <Text style={styles.signupText}>
+            DON'T HAVE AN ACCOUNT? <Text style={styles.signupLink}>SIGN UP!</Text>
+          </Text>
+        </TouchableOpacity>
 
   const fetchData = () => {
     axios
@@ -61,6 +104,13 @@ const LoginPage: React.FC<LoginPageProps> = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
+  background: {
+    flex: 1,
+    resizeMode: "cover",
+    justifyContent: "center",
+    width: "100%",
+    height:"100%",
+  },
   container: {
     flex: 1,
     alignItems: "center",
@@ -97,7 +147,7 @@ const styles = StyleSheet.create({
     fontFamily: "Helvetica",
   },
   forgotPassword: {
-    color: "#00f",
+    color: "#0096FF",
     marginBottom: 20,
     fontWeight: "bold",
     fontFamily: "Helvetica",
@@ -112,6 +162,18 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   loginButtonText: {
+    color: "#fff",
+    fontSize: 18,
+    fontWeight: "bold",
+    fontFamily: "Helvetica",
+  },
+  signupText: {
+    color: "white",
+    fontFamily: "Optima",
+  },
+  signupLink: {
+    color: "#0096FF",
+    fontFamily: "Optima",
     color: "#fff",
     fontSize: 18,
     fontWeight: "bold",
