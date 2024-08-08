@@ -9,7 +9,6 @@ import {
 } from "react-native";
 import { NavigationProp } from "@react-navigation/native";
 
-
 type LoginPageProps = {
   navigation: NavigationProp<any>;
 };
@@ -34,11 +33,11 @@ const LoginPage: React.FC<LoginPageProps> = ({ navigation }) => {
           placeholder="Enter Password"
           placeholderTextColor="#999"
           secureTextEntry={true}
-      
         />
 
         <TouchableOpacity
-        style={styles.forgotPassword}
+          style={styles.forgotPassword}
+          onPress={() => navigation.navigate("ResetPassword")}
         >
           <Text style={styles.forgotPassword}>FORGOT PASSWORD?</Text>
         </TouchableOpacity>
@@ -46,17 +45,15 @@ const LoginPage: React.FC<LoginPageProps> = ({ navigation }) => {
         <TouchableOpacity
           style={styles.loginButton}
           onPress={() => navigation.navigate("Profile", { name: "Jane" })}
-          
         >
           <Text style={styles.loginButtonText}>LOGIN</Text>
         </TouchableOpacity>
 
-        <Text style={styles.signupText}>
-          DON'T HAVE AN ACCOUNT? 
-          <TouchableOpacity onPress={() => navigation.navigate("SignUp")}>
-            <Text style={styles.signupLink} id={'1'} > SIGN UP!</Text>
-          </TouchableOpacity>
-        </Text>
+        <TouchableOpacity onPress={() => navigation.navigate("SignUp")}>
+          <Text style={styles.signupText}>
+            DON'T HAVE AN ACCOUNT? <Text style={styles.signupLink}>SIGN UP!</Text>
+          </Text>
+        </TouchableOpacity>
       </View>
     </ImageBackground>
   );
@@ -67,7 +64,8 @@ const styles = StyleSheet.create({
     flex: 1,
     resizeMode: "cover",
     justifyContent: "center",
-    color: "black",
+    width: "100%",
+    height:"100%",
   },
   container: {
     flex: 1,
@@ -86,12 +84,12 @@ const styles = StyleSheet.create({
     width: "100%",
     height: 50,
     backgroundColor: "white",
-    borderRadius: 20,
+    borderRadius: 5,
     marginBottom: 20,
     paddingHorizontal: 10,
     fontSize: 18,
     color: "black",
-    fontFamily: "Optima",
+    fontFamily: "Copperplate",
   },
   forgotPassword: {
     color: "#0096FF",
@@ -99,19 +97,20 @@ const styles = StyleSheet.create({
     fontFamily: "Optima",
   },
   loginButton: {
-    width: "70%",
+    width: "55%",
     height: 50,
     backgroundColor: "#333",
     borderRadius: 20,
     alignItems: "center",
     justifyContent: "center",
-    marginBottom: 20,
+    marginBottom: 15,
+    fontFamily: "Copperplate",
   },
   loginButtonText: {
     color: "white",
-    fontSize: 18,
+    fontSize: 25,
     fontWeight: "bold",
-    fontFamily: "Papyrus",
+    fontFamily: "Copperplate",
   },
   signupText: {
     color: "white",
@@ -120,10 +119,7 @@ const styles = StyleSheet.create({
   signupLink: {
     color: "#0096FF",
     fontFamily: "Optima",
-    marginBottom: -2,
-  
   },
 });
-
 
 export default LoginPage;

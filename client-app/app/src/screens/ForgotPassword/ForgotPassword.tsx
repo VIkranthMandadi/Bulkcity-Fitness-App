@@ -79,6 +79,8 @@ const styles = StyleSheet.create({
     flex: 1,
     resizeMode: "cover",
     justifyContent: "center",
+    width: "100%",
+    height:"100%",
   },
   container: {
     flex: 1,
@@ -92,29 +94,29 @@ const styles = StyleSheet.create({
     left: 20,
     padding: 10,
     backgroundColor: "#fff",
-    borderRadius: 25,
+    borderRadius: 20,
   },
   backButtonText: {
     fontSize: 24,
     color: "black",
   },
   title: {
-    fontSize: 32,
-    fontWeight: "regular",
+    fontSize: 37,
+    fontWeight: "bold",
     color: "white",
     marginBottom: 50,
-    fontFamily: "Copperplate",
+    fontFamily:"Copperplate",
   },
   input: {
     width: "100%",
     height: 50,
     backgroundColor: "white",
-    borderRadius: 20,
+    borderRadius: 5,
     marginBottom: 20,
     paddingHorizontal: 10,
     fontSize: 18,
     color: "black",
-    fontFamily: "Optima",
+    fontFamily: "Copperplate",
   },
   resetButton: {
     width: "55%",
@@ -123,13 +125,14 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     alignItems: "center",
     justifyContent: "center",
-    marginBottom: 20,
+    marginBottom: 30,
+    
   },
   resetButtonText: {
     color: "white",
-    fontSize: 18,
-    fontWeight: "regular",
-    fontFamily: "Optima",
+    fontSize: 25,
+    fontWeight: "bold",
+    fontFamily: "Copperplate",
   },
 });
 
