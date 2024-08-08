@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Button } from "react-native";
 import { NavigationContainer, NavigationProp, RouteProp } from "@react-navigation/native";
@@ -8,10 +9,10 @@ import { Image } from "react-native";
 const { width } = Dimensions.get('window');
 const { height } = Dimensions.get('window');
 
-type HomeScreenProps = {
-  navigation: NavigationProp<any>;
-  route: RouteProp<any>;
-};
+// type HomeScreenProps = {
+//   navigation: NativeStackNavigationProp<RootStackParamList, "HomePage">;
+// };
+
 
 const HomeScreen: React.FC<HomeScreenProps> = ({ navigation, route}) => {
   return (
