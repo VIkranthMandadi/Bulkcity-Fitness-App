@@ -3,23 +3,21 @@ import React from "react";
 import { Button } from "react-native";
 import { NavigationContainer, NavigationProp, RouteProp } from "@react-navigation/native";
 import { StyleSheet, Text, View, Pressable, Dimensions } from "react-native";
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createNativeStackNavigator, NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { Image } from "react-native";
+import { RootStackParamList } from "@/app";
 
 const { width } = Dimensions.get('window');
 const { height } = Dimensions.get('window');
 
-// type HomeScreenProps = {
-//   navigation: NativeStackNavigationProp<RootStackParamList, "HomePage">;
-// };
+type HomeScreenProps = {
+  navigation: NativeStackNavigationProp<RootStackParamList, "HomePage">;
+};
 
 
-const HomeScreen: React.FC<HomeScreenProps> = ({ navigation, route}) => {
+const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
   return (
   
-    
-    
-   
     <View style={styles.container}>
       <Text style={styles.title}>{"Hi Name,\nIt's Time to Bulk"}</Text>
       <View style={styles.dividerLine}>

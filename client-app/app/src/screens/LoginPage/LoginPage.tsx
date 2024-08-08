@@ -38,26 +38,18 @@ const LoginPage: React.FC<LoginPageProps> = ({ navigation }) => {
         placeholder="Enter Username"
         placeholderTextColor="#cdf1ff"
       />
-
-        <TouchableOpacity
-          style={styles.loginButton}
-          onPress={() => navigation.navigate("Profile")}
-        >
-          <Text style={styles.loginButtonText}>LOGIN</Text>
-        </TouchableOpacity>
       <TextInput
         style={styles.input}
         placeholder="Enter Password"
         placeholderTextColor="#cdf1ff"
         secureTextEntry={true}
       />
-
       <TouchableOpacity>
         <Text style={styles.forgotPassword}>FORGOT PASSWORD?</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.loginButton}
-        onPress={() => navigation.navigate("CalendarPage")}
+        onPress={() => navigation.navigate("HomePage")}
       >
         <Text style={styles.loginButtonText}>LOGIN</Text>
       </TouchableOpacity>
