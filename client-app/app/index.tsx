@@ -6,6 +6,8 @@ import WorkoutPage from "./src/screens/WorkoutDay/workout";
 import LoginPage from "./src/screens/LoginPage/LoginPage";
 import AllWorkoutsPage from "./src/screens/AllWorkoutsPage/AllWorkoutsPage";
 import HomeScreen from "./src/screens/HomeScreen/HomeScreen";
+import ResetPasswordPage from "./src/screens/ForgotPassword/ForgotPassword";
+import SignUpPage from "./src/screens/SignUp/SignUpPage";
 
 export type RootStackParamList = {
   LoginPage: undefined;
@@ -13,6 +15,8 @@ export type RootStackParamList = {
   WorkoutPage: { date: string };
   AllWorkoutsPage: undefined;
   HomePage: undefined;
+  ResetPassword: undefined;
+  SignUp: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();

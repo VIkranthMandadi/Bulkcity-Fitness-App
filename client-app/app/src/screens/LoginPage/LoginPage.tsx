@@ -5,6 +5,7 @@ import {
   TextInput,
   View,
   TouchableOpacity,
+  ImageBackground,
 } from "react-native";
 import { NavigationProp } from "@react-navigation/native";
 
@@ -19,10 +20,6 @@ type LoginPageProps = {
 
 const LoginPage: React.FC<LoginPageProps> = ({ navigation }) => {
   return (
-    <ImageBackground
-      source={require("../../images/bg.png")}
-      style={styles.background}
-    >
       <View style={styles.container}>
         <Text style={styles.title}>BULK CITY</Text>
 
@@ -48,7 +45,7 @@ const LoginPage: React.FC<LoginPageProps> = ({ navigation }) => {
 
         <TouchableOpacity
           style={styles.loginButton}
-          onPress={() => navigation.navigate("Profile", { name: "Jane" })}
+          onPress={() => navigation.navigate("HomePage")}
         >
           <Text style={styles.loginButtonText}>LOGIN</Text>
         </TouchableOpacity>
@@ -58,8 +55,14 @@ const LoginPage: React.FC<LoginPageProps> = ({ navigation }) => {
             DON'T HAVE AN ACCOUNT? <Text style={styles.signupLink}>SIGN UP!</Text>
           </Text>
         </TouchableOpacity>
+        </View>
 
-  const fetchData = () => {
+  
+  );
+};
+    
+
+  {/* const fetchData = () => {
     axios
       .get("http://localhost:3000/exercises")
       .then((response) => {
@@ -68,8 +71,8 @@ const LoginPage: React.FC<LoginPageProps> = ({ navigation }) => {
       .catch((error) => {
         console.error("Error fetching data:", error);
       });
-  };
-  return (
+  }; */}
+  {/* return (
     <View style={styles.container}>
       <View style={styles.titleContainer}>
         <Text style={styles.title}>BULK </Text>
@@ -90,26 +93,18 @@ const LoginPage: React.FC<LoginPageProps> = ({ navigation }) => {
       <TouchableOpacity>
         <Text style={styles.forgotPassword}>FORGOT PASSWORD?</Text>
       </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.loginButton}
-        onPress={() => navigation.navigate("HomePage")}
-      >
-        <Text style={styles.loginButtonText}>LOGIN</Text>
-      </TouchableOpacity>
       <Text style={styles.signupText}>
         DON'T HAVE AN ACCOUNT? <Text style={styles.signupLink}>SIGN UP!</Text>
       </Text>
     </View>
-  );
-};
+  ); */}
 
 const styles = StyleSheet.create({
   background: {
     flex: 1,
     resizeMode: "cover",
     justifyContent: "center",
-    width: "100%",
-    height:"100%",
+    color: "black",
   },
   container: {
     flex: 1,
@@ -119,12 +114,13 @@ const styles = StyleSheet.create({
     backgroundColor: "#20333a",
   },
   titleContainer: {
-    flexDirection: 'row',
+    flexDirection: "row",
     marginBottom: 50,
   },
   title: {
     fontSize: 60,
     fontWeight: "bold",
+    marginBottom: 50,
     color: "#7dc3df",
     fontFamily: "Helvetica",
   },
@@ -147,7 +143,7 @@ const styles = StyleSheet.create({
     fontFamily: "Helvetica",
   },
   forgotPassword: {
-    color: "#0096FF",
+    color: "#00f",
     marginBottom: 20,
     fontWeight: "bold",
     fontFamily: "Helvetica",
@@ -162,18 +158,6 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   loginButtonText: {
-    color: "#fff",
-    fontSize: 18,
-    fontWeight: "bold",
-    fontFamily: "Helvetica",
-  },
-  signupText: {
-    color: "white",
-    fontFamily: "Optima",
-  },
-  signupLink: {
-    color: "#0096FF",
-    fontFamily: "Optima",
     color: "#fff",
     fontSize: 18,
     fontWeight: "bold",
