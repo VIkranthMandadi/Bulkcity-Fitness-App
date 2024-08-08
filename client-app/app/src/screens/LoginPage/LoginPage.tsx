@@ -5,7 +5,6 @@ import {
   TextInput,
   View,
   TouchableOpacity,
-  ImageBackground,
 } from "react-native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamList } from "@/app";
@@ -28,103 +27,106 @@ const LoginPage: React.FC<LoginPageProps> = ({ navigation }) => {
       });
   };
   return (
-    <ImageBackground
-      source={require("../../images/bg.png")}
-      style={styles.background}
-    >
-      <View style={styles.container}>
-        <Text style={styles.title}>BULK CITY</Text>
-
-        <TextInput
-          style={styles.input}
-          placeholder="ENTER USERNAME"
-          placeholderTextColor="#999"
-        />
-
-        <TextInput
-          style={styles.input}
-          placeholder="ENTER PASSWORD"
-          placeholderTextColor="#999"
-          secureTextEntry={true}
-        />
-
-        <TouchableOpacity>
-          <Text style={styles.forgotPassword}>FORGOT PASSWORD?</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={styles.loginButton}
-          onPress={() => navigation.navigate("AllWorkoutsPage")}
-          //onPress={() => fetchData()}
-        >
-          <Text style={styles.loginButtonText}>LOGIN</Text>
-        </TouchableOpacity>
-
-        <Text style={styles.signupText}>
-          DON'T HAVE AN ACCOUNT? <Text style={styles.signupLink}>SIGN UP!</Text>
-        </Text>
+    <View style={styles.container}>
+      <View style={styles.titleContainer}>
+        <Text style={styles.title}>BULK </Text>
+        <Text style={styles.titleCity}>CITY</Text>
       </View>
-    </ImageBackground>
+
+      <TextInput
+        style={styles.input}
+        placeholder="Enter Username"
+        placeholderTextColor="#cdf1ff"
+      />
+
+      <TextInput
+        style={styles.input}
+        placeholder="Enter Password"
+        placeholderTextColor="#cdf1ff"
+        secureTextEntry={true}
+      />
+
+      <TouchableOpacity>
+        <Text style={styles.forgotPassword}>FORGOT PASSWORD?</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.loginButton}
+        onPress={() => navigation.navigate("CalendarPage")}
+      >
+        <Text style={styles.loginButtonText}>LOGIN</Text>
+      </TouchableOpacity>
+      <Text style={styles.signupText}>
+        DON'T HAVE AN ACCOUNT? <Text style={styles.signupLink}>SIGN UP!</Text>
+      </Text>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
-  background: {
-    flex: 1,
-    resizeMode: "cover",
-    justifyContent: "center",
-    color: "black",
-  },
   container: {
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
     paddingHorizontal: 20,
+    backgroundColor: "#20333a",
+  },
+  titleContainer: {
+    flexDirection: 'row',
+    marginBottom: 50,
   },
   title: {
-    fontSize: 48,
+    fontSize: 60,
     fontWeight: "bold",
-    color: "black",
-    marginBottom: 50,
-    fontFamily: "Papyrus",
+    color: "#7dc3df",
+    fontFamily: "Helvetica",
+  },
+  titleCity: {
+    fontSize: 60,
+    fontWeight: "bold",
+    color: "#466c7a",
+    fontFamily: "Helvetica",
   },
   input: {
-    width: "100%",
+    width: "88%",
     height: 50,
-    backgroundColor: "white",
-    borderRadius: 5,
+    backgroundColor: "#2b444e",
+    borderRadius: 7,
     marginBottom: 20,
     paddingHorizontal: 10,
     fontSize: 18,
-    color: "black",
-    fontFamily: "Optima",
+    color: "#000",
+    fontWeight: "condensed",
+    fontFamily: "Helvetica",
   },
   forgotPassword: {
     color: "#00f",
     marginBottom: 20,
-    fontFamily: "Optima",
+    fontWeight: "bold",
+    fontFamily: "Helvetica",
   },
   loginButton: {
-    width: "100%",
+    width: "50%",
     height: 50,
-    backgroundColor: "#333",
-    borderRadius: 5,
+    backgroundColor: "#cdf1ff",
+    borderRadius: 7,
     alignItems: "center",
     justifyContent: "center",
     marginBottom: 20,
   },
   loginButtonText: {
-    color: "white",
+    color: "#fff",
     fontSize: 18,
     fontWeight: "bold",
-    fontFamily: "Papyrus",
+    fontFamily: "Helvetica",
   },
   signupText: {
-    color: "Optima",
+    color: "#fff",
+    fontFamily: "Helvetica",
   },
   signupLink: {
     color: "#00f",
-    fontFamily: "Optima",
+    fontWeight: "bold",
+    fontFamily: "Helvetica",
   },
 });
 
