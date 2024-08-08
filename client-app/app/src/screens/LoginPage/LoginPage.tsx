@@ -5,12 +5,16 @@ import {
   TextInput,
   View,
   TouchableOpacity,
-  ImageBackground,
 } from "react-native";
 import { NavigationProp } from "@react-navigation/native";
 
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { RootStackParamList } from "@/app";
+import axios from "axios"; 
+
+
 type LoginPageProps = {
-  navigation: NavigationProp<any>;
+  navigation: NativeStackNavigationProp<RootStackParamList, "LoginPage">;
 };
 
 const LoginPage: React.FC<LoginPageProps> = ({ navigation }) => {
@@ -54,8 +58,48 @@ const LoginPage: React.FC<LoginPageProps> = ({ navigation }) => {
             DON'T HAVE AN ACCOUNT? <Text style={styles.signupLink}>SIGN UP!</Text>
           </Text>
         </TouchableOpacity>
+
+  const fetchData = () => {
+    axios
+      .get("http://localhost:3000/exercises")
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  };
+  return (
+    <View style={styles.container}>
+      <View style={styles.titleContainer}>
+        <Text style={styles.title}>BULK </Text>
+        <Text style={styles.titleCity}>CITY</Text>
       </View>
-    </ImageBackground>
+
+      <TextInput
+        style={styles.input}
+        placeholder="Enter Username"
+        placeholderTextColor="#cdf1ff"
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Enter Password"
+        placeholderTextColor="#cdf1ff"
+        secureTextEntry={true}
+      />
+      <TouchableOpacity>
+        <Text style={styles.forgotPassword}>FORGOT PASSWORD?</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.loginButton}
+        onPress={() => navigation.navigate("HomePage")}
+      >
+        <Text style={styles.loginButtonText}>LOGIN</Text>
+      </TouchableOpacity>
+      <Text style={styles.signupText}>
+        DON'T HAVE AN ACCOUNT? <Text style={styles.signupLink}>SIGN UP!</Text>
+      </Text>
+    </View>
   );
 };
 
@@ -72,45 +116,56 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     paddingHorizontal: 20,
+    backgroundColor: "#20333a",
+  },
+  titleContainer: {
+    flexDirection: 'row',
+    marginBottom: 50,
   },
   title: {
-    fontSize: 48,
+    fontSize: 60,
     fontWeight: "bold",
-    color: "white",
-    marginBottom: 50,
-    fontFamily: "Copperplate",
+    color: "#7dc3df",
+    fontFamily: "Helvetica",
+  },
+  titleCity: {
+    fontSize: 60,
+    fontWeight: "bold",
+    color: "#466c7a",
+    fontFamily: "Helvetica",
   },
   input: {
-    width: "100%",
+    width: "88%",
     height: 50,
-    backgroundColor: "white",
-    borderRadius: 5,
+    backgroundColor: "#2b444e",
+    borderRadius: 7,
     marginBottom: 20,
     paddingHorizontal: 10,
     fontSize: 18,
-    color: "black",
-    fontFamily: "Copperplate",
+    color: "#000",
+    fontWeight: "condensed",
+    fontFamily: "Helvetica",
   },
   forgotPassword: {
     color: "#0096FF",
     marginBottom: 20,
-    fontFamily: "Optima",
+    fontWeight: "bold",
+    fontFamily: "Helvetica",
   },
   loginButton: {
-    width: "55%",
+    width: "50%",
     height: 50,
-    backgroundColor: "#333",
-    borderRadius: 20,
+    backgroundColor: "#cdf1ff",
+    borderRadius: 7,
     alignItems: "center",
     justifyContent: "center",
-    marginBottom: 15,
-    fontFamily: "Copperplate",
+    marginBottom: 20,
   },
   loginButtonText: {
-    color: "white",
-    fontSize: 25,
+    color: "#fff",
+    fontSize: 18,
     fontWeight: "bold",
-    fontFamily: "Copperplate",
+    fontFamily: "Helvetica",
   },
   signupText: {
     color: "white",
@@ -119,6 +174,19 @@ const styles = StyleSheet.create({
   signupLink: {
     color: "#0096FF",
     fontFamily: "Optima",
+    color: "#fff",
+    fontSize: 18,
+    fontWeight: "bold",
+    fontFamily: "Helvetica",
+  },
+  signupText: {
+    color: "#fff",
+    fontFamily: "Helvetica",
+  },
+  signupLink: {
+    color: "#00f",
+    fontWeight: "bold",
+    fontFamily: "Helvetica",
   },
 });
 
