@@ -11,8 +11,8 @@ import { NavigationProp } from "@react-navigation/native";
 
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamList } from "@/app";
-import axios from "axios"; 
-
+import axios from "axios";
+import NavigationBar from "../../components/NavigationBar/NavigationBar";
 
 type LoginPageProps = {
   navigation: NativeStackNavigationProp<RootStackParamList, "LoginPage">;
@@ -31,13 +31,22 @@ const LoginPage: React.FC<LoginPageProps> = ({ navigation }) => {
           placeholderTextColor="#999"
           
         />
+    <View style={styles.container}>
+      <NavigationBar currentScreen="LoginPage"></NavigationBar>
+      <Text style={styles.title}>BULK CITY</Text>
 
-        <TextInput
-          style={styles.input}
-          placeholder="Enter Password"
-          placeholderTextColor="#999"
-          secureTextEntry={true}
-        />
+      <TextInput
+        style={styles.input}
+        placeholder="Enter Username"
+        placeholderTextColor="#999"
+      />
+
+      <TextInput
+        style={styles.input}
+        placeholder="Enter Password"
+        placeholderTextColor="#999"
+        secureTextEntry={true}
+      />
 
         <TouchableOpacity
           style={styles.forgotPassword}
@@ -45,27 +54,31 @@ const LoginPage: React.FC<LoginPageProps> = ({ navigation }) => {
         >
           <Text style={styles.forgotPassword}>Forgot Password?</Text>
         </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.forgotPassword}
+        onPress={() => navigation.navigate("ResetPassword")}
+      >
+        <Text style={styles.forgotPassword}>FORGOT PASSWORD?</Text>
+      </TouchableOpacity>
 
-        <TouchableOpacity
-          style={styles.loginButton}
-          onPress={() => navigation.navigate("HomePage")}
-        >
-          <Text style={styles.loginButtonText}>LOGIN</Text>
-        </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.loginButton}
+        onPress={() => navigation.navigate("HomePage")}
+      >
+        <Text style={styles.loginButtonText}>LOGIN</Text>
+      </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => navigation.navigate("SignUp")}>
-          <Text style={styles.signupText}>
-            DON'T HAVE AN ACCOUNT? <Text style={styles.signupLink}>SIGN UP!</Text>
-          </Text>
-        </TouchableOpacity>
-        </View>
-
-  
+      <TouchableOpacity onPress={() => navigation.navigate("SignUp")}>
+        <Text style={styles.signupText}>
+          DON'T HAVE AN ACCOUNT? <Text style={styles.signupLink}>SIGN UP!</Text>
+        </Text>
+      </TouchableOpacity>
+    </View>
   );
 };
-    
 
-  {/* const fetchData = () => {
+{
+  /* const fetchData = () => {
     axios
       .get("http://localhost:3000/exercises")
       .then((response) => {
@@ -74,8 +87,10 @@ const LoginPage: React.FC<LoginPageProps> = ({ navigation }) => {
       .catch((error) => {
         console.error("Error fetching data:", error);
       });
-  }; */}
-  {/* return (
+  }; */
+}
+{
+  /* return (
     <View style={styles.container}>
       <View style={styles.titleContainer}>
         <Text style={styles.title}>BULK </Text>
@@ -100,7 +115,8 @@ const LoginPage: React.FC<LoginPageProps> = ({ navigation }) => {
         DON'T HAVE AN ACCOUNT? <Text style={styles.signupLink}>SIGN UP!</Text>
       </Text>
     </View>
-  ); */}
+  ); */
+}
 
 const styles = StyleSheet.create({
   background: {
@@ -137,7 +153,7 @@ const styles = StyleSheet.create({
   titleCity: {
     fontSize: 60,
     fontWeight: "bold",
-    color: "#466c7a",
+    color: "cdf1ff",
     fontFamily: "Helvetica",
   },
   input: {
