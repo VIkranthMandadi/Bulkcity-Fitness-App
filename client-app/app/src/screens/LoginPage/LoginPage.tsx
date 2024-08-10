@@ -129,7 +129,7 @@ const styles = StyleSheet.create({
   titleCity: {
     fontSize: 60,
     fontWeight: "bold",
-    color: "#466c7a",
+    color: "cdf1ff",
     fontFamily: "Helvetica",
   },
   input: {
