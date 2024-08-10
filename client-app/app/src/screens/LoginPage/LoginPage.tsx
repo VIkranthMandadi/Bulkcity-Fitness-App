@@ -31,15 +31,7 @@ const LoginPage: React.FC<LoginPageProps> = ({ navigation }) => {
           placeholderTextColor="#999"
           
         />
-    <View style={styles.container}>
-      <NavigationBar currentScreen="LoginPage"></NavigationBar>
-      <Text style={styles.title}>BULK CITY</Text>
-
-      <TextInput
-        style={styles.input}
-        placeholder="Enter Username"
-        placeholderTextColor="#999"
-      />
+    
 
       <TextInput
         style={styles.input}
@@ -54,13 +46,7 @@ const LoginPage: React.FC<LoginPageProps> = ({ navigation }) => {
         >
           <Text style={styles.forgotPassword}>Forgot Password?</Text>
         </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.forgotPassword}
-        onPress={() => navigation.navigate("ResetPassword")}
-      >
-        <Text style={styles.forgotPassword}>FORGOT PASSWORD?</Text>
-      </TouchableOpacity>
-
+      
       <TouchableOpacity
         style={styles.loginButton}
         onPress={() => navigation.navigate("HomePage")}
