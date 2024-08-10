@@ -21,12 +21,15 @@ type LoginPageProps = {
 const LoginPage: React.FC<LoginPageProps> = ({ navigation }) => {
   return (
       <View style={styles.container}>
-        <Text style={styles.title}>BULK CITY</Text>
-
+        <View style={styles.titleContainer}>
+        <Text style={styles.title2}>BULK </Text>
+        <Text style={styles.title}>CITY </Text>
+        </View>
         <TextInput
           style={styles.input}
           placeholder="Enter Username"
           placeholderTextColor="#999"
+          
         />
 
         <TextInput
@@ -40,7 +43,7 @@ const LoginPage: React.FC<LoginPageProps> = ({ navigation }) => {
           style={styles.forgotPassword}
           onPress={() => navigation.navigate("ResetPassword")}
         >
-          <Text style={styles.forgotPassword}>FORGOT PASSWORD?</Text>
+          <Text style={styles.forgotPassword}>Forgot Password?</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
@@ -124,6 +127,13 @@ const styles = StyleSheet.create({
     color: "#7dc3df",
     fontFamily: "Helvetica",
   },
+  title2: {
+    fontSize: 60,
+    fontWeight: "bold",
+    marginBottom: 50,
+    color: "#cdf1ff",
+    fontFamily: "Helvetica",
+  },
   titleCity: {
     fontSize: 60,
     fontWeight: "bold",
@@ -131,21 +141,23 @@ const styles = StyleSheet.create({
     fontFamily: "Helvetica",
   },
   input: {
-    width: "88%",
+    width: "83%",
     height: 50,
     backgroundColor: "#2b444e",
     borderRadius: 7,
     marginBottom: 20,
     paddingHorizontal: 10,
     fontSize: 18,
-    color: "#000",
-    fontWeight: "condensed",
+    color: "white",
+    fontWeight: "heavy",
     fontFamily: "Helvetica",
+    letterSpacing: 2,
+
   },
   forgotPassword: {
     color: "#00f",
     marginBottom: 20,
-    fontWeight: "bold",
+    fontWeight: "light",
     fontFamily: "Helvetica",
   },
   loginButton: {
