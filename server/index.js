@@ -135,6 +135,55 @@ app.get('/users', async (req, res) => {
     }
   });
 
+const OPENAI_API_KEY = "";
+
+app.get("/chatgpt", async (req, res) => {
+  try {
+    const userMessage = req.query.message; // Message from the user
+
+    if (!userMessage) {
+      return res
+        .status(400)
+        .json({ error: "Message query parameter is required" });
+    }
+
+    const response = await axios.post(
+      "https://api.openai.com/v1/chat/completions",
+      {
+        model: "gpt-3.5-turbo", // or another model you prefer
+        messages: [{ role: "user", content: userMessage }],
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${OPENAI_API_KEY}`,
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    const botMessage = response.data.choices[0].message.content;
+
+    res.json({ reply: botMessage });
+  } catch (err) {
+    if (err.response) {
+      // The request was made, and the server responded with a status code
+      // that falls out of the range of 2xx
+      console.error("Error response data:", err.response.data);
+      console.error("Error response status:", err.response.status);
+      console.error("Error response headers:", err.response.headers);
+      res.status(err.response.status).json({ error: err.response.data });
+    } else if (err.request) {
+      // The request was made but no response was received
+      console.error("No response received:", err.request);
+      res.status(500).json({ error: "No response received from ChatGPT" });
+    } else {
+      // Something happened in setting up the request that triggered an Error
+      console.error("Error setting up request:", err.message);
+      res.status(500).json({ error: "Error setting up request to ChatGPT" });
+    }
+  }
+});
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
