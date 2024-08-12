@@ -52,6 +52,17 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
           <Text style={styles.bulkButtonText}>Bulk Bot</Text>
         </Pressable>
       </View>
+      <View style={styles.btnContainer}>
+        <Pressable
+          style={({ pressed }) => [
+            styles.button,
+            { backgroundColor: pressed ? "#a8cbe3" : "#cdf1ff" },
+          ]}
+          onPress={() => navigation.navigate("AllWorkoutsPage")}
+        >
+          <Text style={styles.bulkButtonText}>AllWorkouts</Text>
+        </Pressable>
+      </View>
     </View>
   );
 };
