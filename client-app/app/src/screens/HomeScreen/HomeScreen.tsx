@@ -49,7 +49,7 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
           ]}
           onPress={() => alert('Chatbot')}
         >
-          <Text style={styles.bulkButtonText}>Bulk Bot</Text> {}
+          <Text style={styles.bulkButtonText}>Bulk Bot</Text>
         </Pressable>
       </View>
     </View>
