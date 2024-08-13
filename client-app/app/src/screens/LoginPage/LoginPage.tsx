@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from 'react';
 import {
   StyleSheet,
   Text,
@@ -6,185 +6,165 @@ import {
   View,
   TouchableOpacity,
   ImageBackground,
-} from "react-native";
-import { NavigationProp } from "@react-navigation/native";
-
-import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { RootStackParamList } from "@/app";
-import axios from "axios";
-import NavigationBar from "../../components/NavigationBar/NavigationBar";
+  Alert,
+} from 'react-native';
+import { NavigationProp } from '@react-navigation/native';
 
 type LoginPageProps = {
-  navigation: NativeStackNavigationProp<RootStackParamList, "LoginPage">;
+  navigation: NavigationProp<any>;
 };
 
 const LoginPage: React.FC<LoginPageProps> = ({ navigation }) => {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleLogin = () => {
+    if (!username) {
+      Alert.alert('Error', 'Username is required');
+      return;
+    }
+
+    if (!password) {
+      Alert.alert('Error', 'Password is required');
+      return;
+    }
+
+    Alert.alert('Success', 'Logged in successfully!');
+    navigation.navigate('Profile', { name: 'Jane' });
+  };
+
   return (
+    <ImageBackground
+      source={require('../../images/bg.png')}
+      style={styles.background}
+    >
       <View style={styles.container}>
-        <View style={styles.titleContainer}>
-        <Text style={styles.title2}>BULK </Text>
-        <Text style={styles.title}>CITY </Text>
-        </View>
+        <TouchableOpacity
+          style={styles.backButton}
+          onPress={() => navigation.goBack()}
+        >
+          <Text style={styles.backButtonText}>←</Text>
+        </TouchableOpacity>
+        <Text style={styles.title}>Bulk City</Text>
+
         <TextInput
           style={styles.input}
           placeholder="Enter Username"
           placeholderTextColor="#999"
-          
+          value={username}
+          onChangeText={setUsername}
         />
-    
 
-      <TextInput
-        style={styles.input}
-        placeholder="Enter Password"
-        placeholderTextColor="#999"
-        secureTextEntry={true}
-      />
+        <TextInput
+          style={styles.input}
+          placeholder="Enter Password"
+          placeholderTextColor="#999"
+          secureTextEntry={true}
+          value={password}
+          onChangeText={setPassword}
+        />
 
         <TouchableOpacity
           style={styles.forgotPassword}
-          onPress={() => navigation.navigate("ResetPassword")}
+          onPress={() => navigation.navigate('Reset Password', { title: 'Please enter your new password' })}
         >
-          <Text style={styles.forgotPassword}>Forgot Password?</Text>
+          <Text style={styles.forgotPasswordText}>FORGOT PASSWORD?</Text>
         </TouchableOpacity>
-      
-      <TouchableOpacity
-        style={styles.loginButton}
-        onPress={() => navigation.navigate("HomePage")}
-      >
-        <Text style={styles.loginButtonText}>LOGIN</Text>
-      </TouchableOpacity>
 
-      <TouchableOpacity onPress={() => navigation.navigate("SignUp")}>
+        <TouchableOpacity
+          style={styles.loginButton}
+          onPress={handleLogin}
+        >
+          <Text style={styles.loginButtonText}>LOGIN</Text>
+        </TouchableOpacity>
+
         <Text style={styles.signupText}>
-          DON'T HAVE AN ACCOUNT? <Text style={styles.signupLink}>SIGN UP!</Text>
+          DON'T HAVE AN ACCOUNT?{' '}
+          <Text
+            style={styles.signupLink}
+            onPress={() => navigation.navigate('Sign Up')}
+          >
+            SIGN UP!
+          </Text>
         </Text>
-      </TouchableOpacity>
-    </View>
+      </View>
+    </ImageBackground>
   );
 };
-
-{
-  /* const fetchData = () => {
-    axios
-      .get("http://localhost:3000/exercises")
-      .then((response) => {
-        console.log(response.data);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-      });
-  }; */
-}
-{
-  /* return (
-    <View style={styles.container}>
-      <View style={styles.titleContainer}>
-        <Text style={styles.title}>BULK </Text>
-        <Text style={styles.titleCity}>CITY</Text>
-      </View>
-
-      <TextInput
-        style={styles.input}
-        placeholder="Enter Username"
-        placeholderTextColor="#cdf1ff"
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Enter Password"
-        placeholderTextColor="#cdf1ff"
-        secureTextEntry={true}
-      />
-      <TouchableOpacity>
-        <Text style={styles.forgotPassword}>FORGOT PASSWORD?</Text>
-      </TouchableOpacity>
-      <Text style={styles.signupText}>
-        DON'T HAVE AN ACCOUNT? <Text style={styles.signupLink}>SIGN UP!</Text>
-      </Text>
-    </View>
-  ); */
-}
 
 const styles = StyleSheet.create({
   background: {
     flex: 1,
-    resizeMode: "cover",
-    justifyContent: "center",
-    color: "black",
+    resizeMode: 'cover',
+    justifyContent: 'center',
   },
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
+    alignItems: 'center',
+    justifyContent: 'center',
     paddingHorizontal: 20,
-    backgroundColor: "#20333a",
   },
-  titleContainer: {
-    flexDirection: "row",
-    marginBottom: 50,
+  backButton: {
+    position: 'absolute',
+    top: 40,
+    left: 20,
+    padding: 10,
+    backgroundColor: '#fff',
+    borderRadius: 20,
+  },
+  backButtonText: {
+    fontSize: 24,
+    color: 'black',
+    fontFamily: 'Copperplate',
   },
   title: {
-    fontSize: 60,
-    fontWeight: "bold",
-    marginBottom: 50,
-    color: "#7dc3df",
-    fontFamily: "Helvetica",
-  },
-  title2: {
-    fontSize: 60,
-    fontWeight: "bold",
-    marginBottom: 50,
-    color: "#cdf1ff",
-    fontFamily: "Helvetica",
-  },
-  titleCity: {
-    fontSize: 60,
-    fontWeight: "bold",
-    color: "cdf1ff",
-    fontFamily: "Helvetica",
+    fontSize: 50,
+    fontWeight: 'bold',
+    color: 'white',
+    marginBottom: 40,
+    fontFamily: 'Copperplate',
   },
   input: {
-    width: "83%",
+    width: '100%',
     height: 50,
-    backgroundColor: "#2b444e",
-    borderRadius: 7,
-    marginBottom: 20,
+    backgroundColor: 'white',
+    borderRadius: 5,
+    marginBottom: 30,
     paddingHorizontal: 10,
     fontSize: 18,
-    color: "white",
-    fontWeight: "heavy",
-    fontFamily: "Helvetica",
-    letterSpacing: 2,
-
+    fontFamily: 'Copperplate',
   },
   forgotPassword: {
-    color: "#00f",
-    marginBottom: 20,
-    fontWeight: "light",
-    fontFamily: "Helvetica",
+    marginBottom: 30,
+  },
+  forgotPasswordText: {
+    color: '#0096FF',
+    fontFamily: 'Copperplate',
+    fontSize: 17
   },
   loginButton: {
-    width: "50%",
+    width: '55%',
     height: 50,
-    backgroundColor: "#cdf1ff",
-    borderRadius: 7,
-    alignItems: "center",
-    justifyContent: "center",
+    backgroundColor: '#333',
+    borderRadius: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
     marginBottom: 20,
   },
   loginButtonText: {
-    color: "#fff",
-    fontSize: 18,
-    fontWeight: "bold",
-    fontFamily: "Helvetica",
+    color: 'white',
+    fontSize: 25,
+    fontWeight: 'bold',
+    fontFamily: 'Copperplate',
   },
   signupText: {
-    color: "#fff",
-    fontFamily: "Helvetica",
+    color: 'white',
+    fontFamily: 'Copperplate',
+    fontSize: 17
   },
   signupLink: {
-    color: "#00f",
-    fontWeight: "bold",
-    fontFamily: "Helvetica",
+    color: '#0096FF',
+    fontFamily: 'Copperplate',
   },
 });
 

@@ -62,6 +62,15 @@ const SignUpPage: React.FC<SignUpPageProps> = ({ navigation }) => {
           onChangeText={setPassword}
         />
 
+<TextInput
+          style={styles.input}
+          placeholder="Confirm Password"
+          placeholderTextColor="#999"
+          secureTextEntry={true}
+          value={password}
+          onChangeText={setPassword}
+        />
+
         <TouchableOpacity style={styles.signUpButton} onPress={handleSignUp}>
           <Text style={styles.signUpButtonText}>Sign Up</Text>
         </TouchableOpacity>

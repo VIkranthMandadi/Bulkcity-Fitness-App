@@ -33,8 +33,8 @@ const App = () => {
       <Stack.Screen name="WorkoutPage" component={WorkoutPage} />
       <Stack.Screen name="AllWorkoutsPage" component={AllWorkoutsPage} />
       <Stack.Screen name="HomePage" component={HomeScreen} />
-      <Stack.Screen name="ResetPassword" component={ResetPasswordPage} />
-      <Stack.Screen name="SignUp" component={SignUpPage} />
+      <Stack.Screen name="Reset Password" component={ResetPasswordPage} />
+      <Stack.Screen name="Sign Up" component={SignUpPage} />
       <Stack.Screen name="BulkBot" component={BulkBot} />
     </Stack.Navigator>
   );
