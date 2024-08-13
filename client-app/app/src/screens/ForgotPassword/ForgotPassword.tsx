@@ -29,6 +29,11 @@ const ResetPasswordPage: React.FC<ResetPasswordPageProps> = ({ navigation }) => 
       return;
     }
 
+    if (newPassword.length < 7) {
+      Alert.alert("Your password is too short");
+      return;
+    }
+
     // Handle password reset logic here
     Alert.alert("Success", "Password has been reset.");
   };
@@ -130,7 +135,7 @@ const styles = StyleSheet.create({
   },
   resetButtonText: {
     color: "white",
-    fontSize: 25,
+    fontSize: 30,
     fontWeight: "bold",
     fontFamily: "Copperplate",
   },

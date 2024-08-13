@@ -32,6 +32,11 @@ const SignUpPage: React.FC<SignUpPageProps> = ({ navigation }) => {
       return;
     }
 
+    if (username.length > 11) {
+      Alert.alert("Your username is too long, please make it shorter.");
+      return;
+    }
+
     if (!email) {
       Alert.alert("All fields are required.");
       return;
