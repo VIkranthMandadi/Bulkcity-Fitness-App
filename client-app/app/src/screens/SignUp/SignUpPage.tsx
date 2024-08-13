@@ -17,9 +17,46 @@ const SignUpPage: React.FC<SignUpPageProps> = ({ navigation }) => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+
+  const validateEmail = (email: string) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
 
   const handleSignUp = () => {
-    // Handle sign up logic here
+    const handleSignUp = () => {
+      if (!email) {
+        alert('All fields are required.');
+        return;
+      }
+  
+      if (!validateEmail(email)) {
+        alert('Please enter a valid email.');
+        return;
+      }
+      
+      if (!username) {
+        alert('All fields are required.');
+        return;
+      }
+  
+      if (!email) {
+        alert('All fields are required.');
+        return;
+      }
+  
+      if (password !== confirmPassword) {
+        alert('Passwords do not match.');
+        return;
+      }
+  
+      
+      Alert.alert('Success', 'Signed up successfully!');
+      return;
+      navigation.navigate('Login'); 
+    };
+    
     alert('Signed up successfully!');
   };
 
@@ -62,13 +99,13 @@ const SignUpPage: React.FC<SignUpPageProps> = ({ navigation }) => {
           onChangeText={setPassword}
         />
 
-<TextInput
+        <TextInput
           style={styles.input}
           placeholder="Confirm Password"
           placeholderTextColor="#999"
           secureTextEntry={true}
-          value={password}
-          onChangeText={setPassword}
+          value={confirmPassword}
+          onChangeText={setConfirmPassword}
         />
 
         <TouchableOpacity style={styles.signUpButton} onPress={handleSignUp}>

@@ -20,12 +20,12 @@ const LoginPage: React.FC<LoginPageProps> = ({ navigation }) => {
 
   const handleLogin = () => {
     if (!username) {
-      Alert.alert('Error', 'Username is required');
+      alert('All fields are required');
       return;
     }
 
     if (!password) {
-      Alert.alert('Error', 'Password is required');
+      alert('All fields are required');
       return;
     }
 
