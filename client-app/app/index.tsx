@@ -9,6 +9,7 @@ import HomeScreen from "./src/screens/HomeScreen/HomeScreen";
 import ResetPasswordPage from "./src/screens/ForgotPassword/ForgotPassword";
 import SignUpPage from "./src/screens/SignUp/SignUpPage";
 import BulkBot from "./src/screens/BulkBot/BulkBot";
+import HomePage from "./src/screens/HomeScreen/HomeScreen";
 
 export type RootStackParamList = {
   LoginPage: undefined;
@@ -28,11 +29,11 @@ const App = () => {
 
   return (
     <Stack.Navigator initialRouteName="LoginPage">
-      <Stack.Screen name="LoginPage" component={LoginPage} />
+      <Stack.Screen name="Login Page" component={LoginPage} />
       <Stack.Screen name="CalendarPage" component={CalendarPage} />
       <Stack.Screen name="WorkoutPage" component={WorkoutPage} />
       <Stack.Screen name="AllWorkoutsPage" component={AllWorkoutsPage} />
-      <Stack.Screen name="HomePage" component={HomeScreen} />
+      <Stack.Screen name="HomePage" component={HomePage} />
       <Stack.Screen name="Reset Password" component={ResetPasswordPage} />
       <Stack.Screen name="Sign Up" component={SignUpPage} />
       <Stack.Screen name="BulkBot" component={BulkBot} />

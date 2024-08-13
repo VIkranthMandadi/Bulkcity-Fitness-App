@@ -6,6 +6,7 @@ import {
   View,
   TouchableOpacity,
   ImageBackground,
+  Alert,
 } from 'react-native';
 import { NavigationProp } from '@react-navigation/native';
 
@@ -14,55 +15,50 @@ type SignUpPageProps = {
 };
 
 const SignUpPage: React.FC<SignUpPageProps> = ({ navigation }) => {
-  const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   const validateEmail = (email: string) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   };
 
+
   const handleSignUp = () => {
-    const handleSignUp = () => {
-      if (!email) {
-        alert('All fields are required.');
-        return;
-      }
-  
-      if (!validateEmail(email)) {
-        alert('Please enter a valid email.');
-        return;
-      }
-      
-      if (!username) {
-        alert('All fields are required.');
-        return;
-      }
-  
-      if (!email) {
-        alert('All fields are required.');
-        return;
-      }
-  
-      if (password !== confirmPassword) {
-        alert('Passwords do not match.');
-        return;
-      }
-  
-      
-      Alert.alert('Success', 'Signed up successfully!');
+    if (!username) {
+      Alert.alert("All fields are required.");
       return;
-      navigation.navigate('Login'); 
-    };
+    }
+
+    if (!email) {
+      Alert.alert("All fields are required.");
+      return;
+    }
+
+    if (!validateEmail(email)) {
+      Alert.alert("Please enter a valid email address.");
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      Alert.alert("Passwords do not match");
+      return;
+    }
+
+    if (password.length < 7) {
+      Alert.alert("Your password is too short");
+      return;
+    }
     
-    alert('Signed up successfully!');
+    Alert.alert("Success", "Signed up successfully!");
+    navigation.navigate("Login"); 
   };
 
   return (
     <ImageBackground
-      source={require('../../images/bg.png')}
+      source={require("../../images/bg.png")}
       style={styles.background}
     >
       <View style={styles.container}>
@@ -129,23 +125,22 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   backButton: {
-    position: "absolute",
+    position: 'absolute',
     top: 40,
     left: 20,
     padding: 10,
-    backgroundColor: "#fff",
+    backgroundColor: '#fff',
     borderRadius: 20,
-
   },
   backButtonText: {
     fontSize: 24,
-    color: "black",
-  },
+    color: 'black',
+    },
   title: {
     fontSize: 50,
     fontWeight: 'bold',
     color: 'white',
-    marginBottom: 50,
+    marginBottom: 40,
     fontFamily: 'Copperplate',
   },
   input: {
@@ -153,7 +148,7 @@ const styles = StyleSheet.create({
     height: 50,
     backgroundColor: 'white',
     borderRadius: 5,
-    marginBottom: 20,
+    marginBottom: 30,
     paddingHorizontal: 10,
     fontSize: 18,
     fontFamily: 'Copperplate',

@@ -20,17 +20,15 @@ const LoginPage: React.FC<LoginPageProps> = ({ navigation }) => {
 
   const handleLogin = () => {
     if (!username) {
-      alert('All fields are required');
+      Alert.alert("All fields are required");
       return;
     }
 
     if (!password) {
-      alert('All fields are required');
+      Alert.alert("All fields are required");
       return;
     }
-
-    Alert.alert('Success', 'Logged in successfully!');
-    navigation.navigate('Profile', { name: 'Jane' });
+    navigation.navigate('HomePage', { username });
   };
 
   return (
@@ -115,7 +113,6 @@ const styles = StyleSheet.create({
   backButtonText: {
     fontSize: 24,
     color: 'black',
-    fontFamily: 'Copperplate',
   },
   title: {
     fontSize: 50,
