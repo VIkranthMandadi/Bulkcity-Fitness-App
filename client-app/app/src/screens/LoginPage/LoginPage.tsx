@@ -37,12 +37,6 @@ const LoginPage: React.FC<LoginPageProps> = ({ navigation }) => {
       style={styles.background}
     >
       <View style={styles.container}>
-        <TouchableOpacity
-          style={styles.backButton}
-          onPress={() => navigation.goBack()}
-        >
-          <Text style={styles.backButtonText}>←</Text>
-        </TouchableOpacity>
         <Text style={styles.title}>Bulk City</Text>
 
         <TextInput
@@ -102,24 +96,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingHorizontal: 20,
   },
-  backButton: {
-    position: 'absolute',
-    top: 40,
-    left: 20,
-    padding: 10,
-    backgroundColor: '#fff',
-    borderRadius: 20,
-  },
-  backButtonText: {
-    fontSize: 24,
-    color: 'black',
-  },
+
   title: {
     fontSize: 50,
     fontWeight: 'bold',
     color: 'white',
     marginBottom: 40,
-    fontFamily: 'Copperplate',
+    fontFamily: 'Arial Black',
   },
   input: {
     width: '100%',
@@ -129,14 +112,14 @@ const styles = StyleSheet.create({
     marginBottom: 30,
     paddingHorizontal: 10,
     fontSize: 18,
-    fontFamily: 'Copperplate',
+    fontFamily: 'Arial Black',
   },
   forgotPassword: {
     marginBottom: 30,
   },
   forgotPasswordText: {
     color: '#0096FF',
-    fontFamily: 'Copperplate',
+    fontFamily: 'Arial Black',
     fontSize: 17
   },
   loginButton: {
@@ -152,16 +135,16 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 25,
     fontWeight: 'bold',
-    fontFamily: 'Copperplate',
+    fontFamily: 'Arial Black',
   },
   signupText: {
     color: 'white',
-    fontFamily: 'Copperplate',
+    fontFamily: 'Arial Black',
     fontSize: 17
   },
   signupLink: {
     color: '#0096FF',
-    fontFamily: 'Copperplate',
+    fontFamily: 'Arial Black',
   },
 });
 

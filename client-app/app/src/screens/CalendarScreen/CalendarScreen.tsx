@@ -4,12 +4,12 @@ import { Calendar } from "react-native-calendars";
 import { NavigationProp, RouteProp } from "@react-navigation/native";
 import { RootStackParamList } from "@/app";
 
-type CalendarPageProps = {
-  navigation: NavigationProp<RootStackParamList, "CalendarPage">;
-  route: RouteProp<RootStackParamList, "CalendarPage">;
+type CalendarScreenProps = {
+  navigation: NavigationProp<RootStackParamList, "CalendarScreen">;
+  route: RouteProp<RootStackParamList, "CalendarScreen">;
 };
 
-const CalendarPage: React.FC<CalendarPageProps> = ({ navigation }) => {
+const CalendarScreen: React.FC<CalendarScreenProps> = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.header}>Calendar</Text>
@@ -95,4 +95,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CalendarPage;
+export default CalendarScreen;
