@@ -28,14 +28,14 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 const App = () => {
 
   return (
-    <Stack.Navigator initialRouteName="LoginPage">
-      <Stack.Screen name="Login Page" component={LoginPage} />
+    <Stack.Navigator initialRouteName="AllWorkoutsPage">
+      <Stack.Screen name="LoginPage" component={LoginPage} />
       <Stack.Screen name="CalendarPage" component={CalendarPage} />
       <Stack.Screen name="WorkoutPage" component={WorkoutPage} />
       <Stack.Screen name="AllWorkoutsPage" component={AllWorkoutsPage} />
       <Stack.Screen name="HomePage" component={HomePage} />
-      <Stack.Screen name="Reset Password" component={ResetPasswordPage} />
-      <Stack.Screen name="Sign Up" component={SignUpPage} />
+      <Stack.Screen name="ResetPassword" component={ResetPasswordPage} />
+      <Stack.Screen name="SignUp" component={SignUpPage} />
       <Stack.Screen name="BulkBot" component={BulkBot} />
     </Stack.Navigator>
   );

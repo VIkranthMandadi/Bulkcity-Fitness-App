@@ -64,7 +64,7 @@ const LoginPage: React.FC<LoginPageProps> = ({ navigation }) => {
 
         <TouchableOpacity
           style={styles.forgotPassword}
-          onPress={() => navigation.navigate('Reset Password', { title: 'Please enter your new password' })}
+          onPress={() => navigation.navigate('ResetPassword', { title: 'Please enter your new password' })}
         >
           <Text style={styles.forgotPasswordText}>FORGOT PASSWORD?</Text>
         </TouchableOpacity>
@@ -80,7 +80,7 @@ const LoginPage: React.FC<LoginPageProps> = ({ navigation }) => {
           DON'T HAVE AN ACCOUNT?{' '}
           <Text
             style={styles.signupLink}
-            onPress={() => navigation.navigate('Sign Up')}
+            onPress={() => navigation.navigate('SignUp')}
           >
             SIGN UP!
           </Text>
