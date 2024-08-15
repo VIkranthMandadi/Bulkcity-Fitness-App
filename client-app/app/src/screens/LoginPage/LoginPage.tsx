@@ -37,12 +37,6 @@ const LoginPage: React.FC<LoginPageProps> = ({ navigation }) => {
       style={styles.background}
     >
       <View style={styles.container}>
-        <TouchableOpacity
-          style={styles.backButton}
-          onPress={() => navigation.goBack()}
-        >
-          <Text style={styles.backButtonText}>←</Text>
-        </TouchableOpacity>
         <Text style={styles.title}>Bulk City</Text>
 
         <TextInput
@@ -64,7 +58,7 @@ const LoginPage: React.FC<LoginPageProps> = ({ navigation }) => {
 
         <TouchableOpacity
           style={styles.forgotPassword}
-          onPress={() => navigation.navigate('Reset Password', { title: 'Please enter your new password' })}
+          onPress={() => navigation.navigate('ResetPassword', { title: 'Please enter your new password' })}
         >
           <Text style={styles.forgotPasswordText}>FORGOT PASSWORD?</Text>
         </TouchableOpacity>
@@ -80,7 +74,7 @@ const LoginPage: React.FC<LoginPageProps> = ({ navigation }) => {
           DON'T HAVE AN ACCOUNT?{' '}
           <Text
             style={styles.signupLink}
-            onPress={() => navigation.navigate('Sign Up')}
+            onPress={() => navigation.navigate('SignUp')}
           >
             SIGN UP!
           </Text>
@@ -102,18 +96,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingHorizontal: 20,
   },
-  backButton: {
-    position: 'absolute',
-    top: 40,
-    left: 20,
-    padding: 10,
-    backgroundColor: '#fff',
-    borderRadius: 20,
-  },
-  backButtonText: {
-    fontSize: 24,
-    color: 'black',
-  },
+
   title: {
     fontSize: 50,
     fontWeight: 'bold',
