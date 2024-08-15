@@ -13,15 +13,17 @@ import { RouteProp } from '@react-navigation/native';
 
 const { width, height } = Dimensions.get("window");
 
-// type HomeScreenProps = {
-//   navigation: NativeStackNavigationProp<RootStackParamList, "HomePage">;
-// };
-
-type HomePageProps = {
-  route: RouteProp<{ params: { username: string } }, 'params'>;
+type HomeScreenProps = {
+  navigation: NativeStackNavigationProp<RootStackParamList, "HomePage">;
+  route: RouteProp<RootStackParamList, "HomePage">;
+  
 };
 
-const HomePage: React.FC<HomeScreenProps> = ({ route }) => {
+// type HomeScreenProps = {
+//   route: RouteProp<{ params: { username: string } }, 'params'>;
+// };
+
+const HomePage: React.FC<HomeScreenProps> = ({ navigation, route }) => {
   const { username } = route.params;
 
 // const HomePage: React.FC<HomeScreenProps> = ({ navigation }) => {
@@ -54,7 +56,7 @@ const HomePage: React.FC<HomeScreenProps> = ({ route }) => {
               styles.button,
               { backgroundColor: pressed ? "#d6d6d6" : "#5e5e5e" },
             ]}
-            onPress={() => alert("Calendar")}
+            onPress={() => navigation.navigate("CalendarPage")}
           >
             <Text style={styles.buttonText}>CALENDAR</Text>
           </Pressable>

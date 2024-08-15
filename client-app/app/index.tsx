@@ -29,7 +29,7 @@ const App = () => {
   return (
     <Stack.Navigator initialRouteName="LoginPage">
       <Stack.Screen name="LoginPage" component={LoginPage} />
-      <Stack.Screen name="CalendarScreen" component={CalendarPage} />
+      <Stack.Screen name="CalendarPage" component={CalendarPage} />
       <Stack.Screen name="WorkoutPage" component={WorkoutPage} />
       <Stack.Screen name="AllWorkoutsPage" component={AllWorkoutsPage} />
       <Stack.Screen name="HomePage" component={HomeScreen} />
