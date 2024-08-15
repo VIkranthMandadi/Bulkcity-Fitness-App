@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: 'white',
     marginBottom: 40,
-    fontFamily: 'Copperplate',
+    fontFamily: 'Arial Black',
   },
   input: {
     width: '100%',
@@ -112,14 +112,14 @@ const styles = StyleSheet.create({
     marginBottom: 30,
     paddingHorizontal: 10,
     fontSize: 18,
-    fontFamily: 'Copperplate',
+    fontFamily: 'Arial Black',
   },
   forgotPassword: {
     marginBottom: 30,
   },
   forgotPasswordText: {
     color: '#0096FF',
-    fontFamily: 'Copperplate',
+    fontFamily: 'Arial Black',
     fontSize: 17
   },
   loginButton: {
@@ -135,16 +135,16 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 25,
     fontWeight: 'bold',
-    fontFamily: 'Copperplate',
+    fontFamily: 'Arial Black',
   },
   signupText: {
     color: 'white',
-    fontFamily: 'Copperplate',
+    fontFamily: 'Arial Black',
     fontSize: 17
   },
   signupLink: {
     color: '#0096FF',
-    fontFamily: 'Copperplate',
+    fontFamily: 'Arial Black',
   },
 });
 

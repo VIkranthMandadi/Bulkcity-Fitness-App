@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "white",
     marginBottom: 50,
-    fontFamily:"Copperplate",
+    fontFamily:"Arial Black",
   },
   input: {
     width: "100%",
@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     fontSize: 18,
     color: "black",
-    fontFamily: "Copperplate",
+    fontFamily: "Arial Black",
   },
   resetButton: {
     width: "55%",
@@ -137,7 +137,7 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 30,
     fontWeight: "bold",
-    fontFamily: "Copperplate",
+    fontFamily: "Arial Black",
   },
 });
 
